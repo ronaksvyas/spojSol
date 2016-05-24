@@ -19,7 +19,7 @@ def getNextPalindrome(n):
 		for i in xrange(len(ns)/2):
 			ns[len(ns)-i-1] = ns[i]
 		while(isPalindrome("".join(ns)) == False):
-			ns = list(str(int("".join(ns))+1))
+			ns = list(str(long("".join(ns))+1))
 		print "".join(ns)
 
 
