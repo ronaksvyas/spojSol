@@ -5,34 +5,23 @@ def main():
 		getNextPalindrome(n)
 
 
-
-
-
 def getNextPalindrome(n):
-	ns = str(n+1)
-	ns = list(ns)
+	ns = list(str(n))
 	if(isPalindrome("".join(ns))):
 		print "".join(ns)
 		return
 	if(len(ns) == 1):
-		print int(ns)+1
+		print 11
 		return
 	else:
 		i = 0
 		j = len(ns) - 1
-		while(not(i == j)):
-			if(int(ns[i]) == int(ns[j])):
-				i += 1
-				j -= 1
-			else:
-				if(int(ns[j]) < int(ns[i])):
-					ns[j] = str(int(ns[j]) + 1)
-					ns[i] = ns[j]
-				else:
-					ns[j] = ns[i]
-				if(isPalindrome("".join(ns))):
-					print "".join(ns)
-					return
+		for i in xrange(len(ns)/2):
+			ns[len(ns)-i-1] = ns[i]
+		while(isPalindrome("".join(ns)) == False):
+			ns = list(str(int("".join(ns))+1))
+		print "".join(ns)
+
 
 
 def isPalindrome(n):
